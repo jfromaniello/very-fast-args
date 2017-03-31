@@ -17,6 +17,12 @@ function withVeryFastArgs() {
   return vfa.apply(null, arguments);
 }
 
+// works on node.js 6 but doesn't work on 4.
+// //this one is always a little faster because there isn't apply etc
+// function withRest(...rest) {
+//   return rest;
+// }
+
 exports.compare = {
   'Array.apply' : function () {
     return withArrayApply(1, 2, 3);
@@ -27,6 +33,9 @@ exports.compare = {
   'fast-args': function () {
     return withFastArgs(1, 2, 3);
   },
+  // 'rest': function () {
+  //   return withRest(1,2,3);
+  // },
   'very-fast-args': function () {
     return withVeryFastArgs(1,2,3);
   }

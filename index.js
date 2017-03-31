@@ -1,4 +1,4 @@
-module.exports = function vfa() {
+function vfa() {
   switch(arguments.length) {
     case 1:
       return [ arguments[0] ];
@@ -15,4 +15,10 @@ module.exports = function vfa() {
     default:
       return Array.apply(null, arguments);
   }
-};
+}
+
+try{
+  module.exports = Function('return function fargs(...rest){ return rest; }')();
+} catch(err) {
+  module.exports = vfa;
+}

@@ -4,6 +4,8 @@ This module does the same than [fast-args](https://github.com/jamen/fast-args), 
 
 Using `function.apply(null, arguments)` works on the optimizing compiler while using `function(arguments)` generates a leaks of the arguments object and prevent optimizations.
 
+This module uses [rest parameters](https://developer.mozilla.org/docs/Web/JavaScript/Referencia/Funciones/parametros_rest) if supported by the javascript engine.
+
 ## Installation
 
 ```
